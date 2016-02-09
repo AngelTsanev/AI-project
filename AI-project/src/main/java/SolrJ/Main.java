@@ -16,8 +16,8 @@ public class Main
         String url = "http://localhost:8983/solr/ai";
         SolrClient server = new HttpSolrClient(url);
         
-        Scrape scrape = new Scrape(server);
-        scrape.scrapeInformation();
+        //Scrape scrape = new Scrape(server);
+        //scrape.scrapeInformation();
         
         
     }

@@ -58,7 +58,7 @@ public class Scrape
                 }
             }
             
-            createCar(car);
+            createCar(car, i);
             
             if((i % 100) == 0)
                 persistDocuments(cars);
@@ -76,9 +76,10 @@ public class Scrape
         this.cars = new ArrayList<Car>();
     }
     
-    private void createCar(Map<String, String> map)
+    private void createCar(Map<String, String> map, int id)
     {
         Car car = new Car();
+        car.setId(Integer.toString(id));
         
         for(String key: map.keySet())
         {
@@ -105,17 +106,77 @@ public class Scrape
             case "Maximum speed":
                 car.setMaxSpeed(map.get(key));
                 break;
-            case "":
-                
-                
-                
-            }
-            
-            
-            
-            
-        }
-        
+            case "Fuel tank volume":
+                 car.setFuelTankCapacity(map.get(key));
+                break;
+            case "Year of putting into production":
+                car.setStartProduction(map.get(key));
+                break;
+            case "Year of stopping production":
+                car.setStopProduction(map.get(key));
+                break;
+            case "Coupe type":
+                car.setCoupeType(map.get(key));
+                break;
+            case "Length":
+                car.setLength(map.get(key));
+                break;
+            case "Width":
+                car.setWeigth(map.get(key));
+                break;
+            case "Height":
+                car.setHeight(map.get(key));
+                break;
+            case "Minimum volume of Luggage (trunk)":
+                car.setTrunkSize(map.get(key));
+                break;
+            case "Volume of engine":
+                car.setEngineVolume(map.get(key));
+                break;
+            case "Max power in":
+                car.setMaxPowerIn(map.get(key));
+                break;
+            case "Torque":
+                car.setTorque(map.get(key));
+                break;
+            case "Fuel System":
+                car.setFuelSystem(map.get(key));
+                break;
+            case "Turbine":
+                car.setTurbine(map.get(key));
+                break;
+            case "Number of cylinders":
+                car.setCylinders(Short.parseShort(map.get(key)));
+                break;
+            case "Number of valves per cylinder":
+                car.setNumValvesPerCylinder(Short.parseShort(map.get(key)));
+                break;
+            case "Fuel Type":
+                car.setFuelType(map.get(key));
+                break;
+            case "Wheel Drive":
+                car.setWheelDrive(map.get(key));
+                break;
+            case "Number of Gears (automatic transmission)":
+                car.setNumGearsA(map.get(key));
+                break;
+            case "Number of Gears (manual transmission)":
+                car.setNumGearsM(map.get(key));
+                break;
+            case "Fuel consumption (economy) - urban":
+                car.setFuelConsumptionU(map.get(key));
+                break;
+            case "Fuel consumption (economy) - extra urban":
+                car.setFuelConsumptionEU(map.get(key));
+                break;
+            case "Kerb Weight":
+                car.setKerbWeigth(map.get(key));
+                break;
+            case "Tire size":
+                car.setTireSize(map.get(key));
+                break;
+            }         
+        }      
         
         cars.add(car);
         this.car = new HashMap<String, String>();
