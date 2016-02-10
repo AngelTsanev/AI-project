@@ -68,7 +68,7 @@ public class Car
     private String engine;
     
     @Field
-    private short doors;
+    private int doors;
     
     @Field
     private String power;
@@ -113,10 +113,10 @@ public class Car
     private String turbine;
     
     @Field
-    private short cylinders;
+    private int cylinders;
     
     @Field
-    private short numValvesPerCylinder;
+    private int numValvesPerCylinder;
     
     @Field 
     private String fuelType;
@@ -195,12 +195,12 @@ public class Car
         this.engine = engine;
     }
 
-    public short getDoors()
+    public int getDoors()
     {
         return doors;
     }
 
-    public void setDoors(short doors)
+    public void setDoors(int doors)
     {
         this.doors = doors;
     }
@@ -345,22 +345,22 @@ public class Car
         this.turbine = turbine;
     }
 
-    public short getCylinders()
+    public int getCylinders()
     {
         return cylinders;
     }
 
-    public void setCylinders(short cylinders)
+    public void setCylinders(int cylinders)
     {
         this.cylinders = cylinders;
     }
 
-    public short getNumValvesPerCylinder()
+    public int getNumValvesPerCylinder()
     {
         return numValvesPerCylinder;
     }
 
-    public void setNumValvesPerCylinder(short numValvesPerCylinder)
+    public void setNumValvesPerCylinder(int numValvesPerCylinder)
     {
         this.numValvesPerCylinder = numValvesPerCylinder;
     }
@@ -453,6 +453,23 @@ public class Car
     public void setTrunkSize(String trunkSize)
     {
         this.trunkSize = trunkSize;
+    }
+
+    @Override
+    public String toString()
+    {
+        return "Car [id=" + id + ", brand=" + brand + ", generation=" + generation + ", model=" +
+            model + ", engine=" + engine + ", doors=" + doors + ", power=" + power +
+            ", fuelTankCapacity=" + fuelTankCapacity + ", maxSpeed=" + maxSpeed + ", coupeType=" +
+            coupeType + ", startProduction=" + startProduction + ", stopProduction=" +
+            stopProduction + ", length=" + length + ", height=" + height + ", weigth=" + weigth +
+            ", engineVolume=" + engineVolume + ", maxPowerIn=" + maxPowerIn + ", torque=" + torque +
+            ", fuelSystem=" + fuelSystem + ", turbine=" + turbine + ", cylinders=" + cylinders +
+            ", numValvesPerCylinder=" + numValvesPerCylinder + ", fuelType=" + fuelType +
+            ", wheelDrive=" + wheelDrive + ", kerbWeigth=" + kerbWeigth + ", tireSize=" + tireSize +
+            ", fuelConsumptionU=" + fuelConsumptionU + ", fuelConsumptionEU=" + fuelConsumptionEU +
+            ", numGearsM=" + numGearsM + ", numGearsA=" + numGearsA + ", trunkSize=" + trunkSize +
+            "]";
     }
     
 }

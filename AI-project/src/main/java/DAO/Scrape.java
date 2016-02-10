@@ -33,7 +33,7 @@ public class Scrape
 
         for (int i = 1; i < 2; i++)
         {
-            Document doc = Jsoup.connect("http://www.auto-data.net/en/?f=showCar&car_id=" + i)
+            Document doc = Jsoup.connect("http://www.auto-data.net/en/?f=showCar&car_id=" + 22645)
                 .get();
             Elements td = doc.select("td");
 
@@ -58,7 +58,8 @@ public class Scrape
                 }
             }
             
-            createCar(car, i);
+            createCar(car, 22645);
+            persistDocuments(cars); // REMOVE !!!!!!!!!!!!!!!!!!!!!!!!!!!
             
             if((i % 100) == 0)
                 persistDocuments(cars);
