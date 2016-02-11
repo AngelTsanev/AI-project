@@ -1,0 +1,2 @@
+{"brand":"3er","model":"BMW","coupeType":"Sedan","startProduction":"2010","fuelType":"Diesel","numGearsA":"8","power":"255"}
+{"brand":"3er","model":"BMW","coupeType":"Sedan","startProduction":"2010","fuelType":"Diesel","numGearsA":"8","power":"255"}

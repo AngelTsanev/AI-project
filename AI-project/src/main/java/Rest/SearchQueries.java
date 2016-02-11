@@ -1,5 +1,6 @@
 package Rest;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.List;
 
@@ -14,7 +15,7 @@ import org.apache.solr.client.solrj.SolrServerException;
 import org.codehaus.jettison.json.JSONException;
 
 import DAO.DAOSolr;
-import Recommendation.SaveUserActions;
+import Recommendation.UserActions;
 import datamodel.Car;
 import datamodel.QueryPOJO;
 
@@ -28,12 +29,12 @@ public class SearchQueries
     
     @GET
     @Path("/id/{id}")
-    public Car getById(@PathParam("id") String id) 
+    public Car getById(@PathParam("id") String id) throws FileNotFoundException, JSONException 
     {
         DAOSolr dao = new DAOSolr();
         Car result = dao.getElementById(id);
         
-        SaveUserActions save = new SaveUserActions();
+        UserActions save = new UserActions();
         save.saveCarViewed(result);
         
         return result; 
