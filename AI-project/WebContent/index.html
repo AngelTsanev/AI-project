@@ -6,7 +6,34 @@
   <title><ui:insert name="title">Default title</ui:insert></title>
 </head>
 
-<body>
+<body onload = "f()">
+
+<script>
+
+function f(){
+	
+var request  = {brand: "AC", model: "ACE" , power:"", startProduction : "", numGearsA :"", coupeType: "", fuelType: ""};
+
+alert('http://localhost:8080/AI-project/' + 'search/' + JSON.stringify(request));
+
+$.ajax({
+    type: 'GET',
+    url: 'localhost:8080/AI-project/id/1,
+    dataType: "json",
+    success: function(data){
+        
+        alert("test");
+    }
+});
+    
+}
+
+</script>
+
+
+
+
+
 <p>Hello</p>
 
 </body>

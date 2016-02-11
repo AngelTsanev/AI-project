@@ -1,7 +1,9 @@
 package datamodel;
 
-import org.apache.solr.client.solrj.beans.Field;
+import javax.xml.bind.annotation.XmlRootElement;
 
+import org.apache.solr.client.solrj.beans.Field;
+@XmlRootElement
 public class Car
 {
     
