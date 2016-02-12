@@ -22,11 +22,11 @@ public class UserActions
         userdata = new File("userdata.txt");
     }
 
-    public void saveCarViewed(Car car) throws FileNotFoundException, JSONException
+    public void saveCarViewed(Car car) throws JSONException, IOException
     {
         if (!userdata.exists())
         {
-            userdata.mkdir();
+            userdata.createNewFile();
         }
 
         JSONObject object = new JSONObject();

@@ -8,7 +8,7 @@ import org.codehaus.jettison.json.JSONException;
 
 public class Recommendation
 {
-    private static JSONArray userInfo = null;
+    private JSONArray userInfo = null;
     
     public Recommendation() throws IOException, JSONException
     {
@@ -79,11 +79,11 @@ public class Recommendation
     
     public static void main(String args[]) throws JSONException, IOException
     {
-        Statistics temp = new Statistics();
-        UserActions data = new UserActions();
-        userInfo = data.getUserInformation();
+        //Statistics temp = new Statistics();
+        //UserActions data = new UserActions();
+        //userInfo = data.getUserInformation();
         
-        System.out.println(temp.hoursePowerStatistics(userInfo));
+        System.out.println(new Recommendation().getRecommendationQuery().getQuery());
         
     }
 

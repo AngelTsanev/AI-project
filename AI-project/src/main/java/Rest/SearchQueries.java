@@ -30,7 +30,9 @@ public class SearchQueries
     
     @GET
     @Path("/id/{id}")
-    public Car getById(@PathParam("id") String id) throws FileNotFoundException, JSONException 
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public Car getById(@PathParam("id") String id) throws JSONException, IOException 
     {
         DAOSolr dao = new DAOSolr();
         Car result = dao.getElementById(id);
@@ -40,8 +42,7 @@ public class SearchQueries
         
         return result; 
     }
-    
-    
+      
     @GET
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)

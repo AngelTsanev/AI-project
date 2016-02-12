@@ -111,7 +111,7 @@ public class Statistics
             if (year.equals(""))
                 continue;
 
-            avarageYears = avarageYears + Integer.parseInt(year.substring(0, 4));
+            avarageYears = avarageYears + Integer.parseInt(year);
 
             num++;
         }
@@ -142,7 +142,7 @@ public class Statistics
             if (hp.equals(""))
                 continue;
 
-            hpAvarage = hpAvarage + Integer.parseInt(hp.substring(0, hp.indexOf(" ")));
+            hpAvarage = hpAvarage + Integer.parseInt(hp);
 
             num++;
         }
@@ -194,7 +194,7 @@ public class Statistics
           if(appear.size() == 1 || temp)
               break;
           
-          result = result + "OR";
+          result = result + " OR ";
           temp = true;
       }
         
