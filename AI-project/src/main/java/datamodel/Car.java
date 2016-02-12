@@ -13,8 +13,8 @@ public class Car
     }
     
     public Car(String id, String brand, String generation, String model, String engine,
-        short doors, String power, String fuelTankCapacity, String maxSpeed, String coupeType,
-        String startProduction, String stopProduction, String length, String height, String weigth,
+        short doors, int power, String fuelTankCapacity, String maxSpeed, String coupeType,
+        int startProduction, String stopProduction, String length, String height, String weigth,
         String engineVolume, String maxPowerIn, String torque, String fuelSystem, String turbine,
         short cylinders, short numValvesPerCylinder, String fuelType, String wheelDrive,
         String kerbWeigth, String tireSize, String fuelConsumptionU, String fuelConsumptionEU,
@@ -73,7 +73,7 @@ public class Car
     private int doors;
     
     @Field
-    private String power;
+    private int power;
     
     @Field
     private String fuelTankCapacity;
@@ -85,7 +85,7 @@ public class Car
     private String coupeType;
     
     @Field
-    private String startProduction;
+    private int startProduction;
     
     @Field 
     private String stopProduction;
@@ -207,12 +207,12 @@ public class Car
         this.doors = doors;
     }
 
-    public String getPower()
+    public int getPower()
     {
         return power;
     }
 
-    public void setPower(String power)
+    public void setPower(int power)
     {
         this.power = power;
     }
@@ -247,12 +247,12 @@ public class Car
         this.coupeType = coupeType;
     }
 
-    public String getStartProduction()
+    public int getStartProduction()
     {
         return startProduction;
     }
 
-    public void setStartProduction(String startProduction)
+    public void setStartProduction(int startProduction)
     {
         this.startProduction = startProduction;
     }

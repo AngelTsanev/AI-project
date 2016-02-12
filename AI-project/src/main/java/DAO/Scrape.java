@@ -102,7 +102,7 @@ public class Scrape
                 car.setDoors(Short.parseShort(map.get(key)));
                 break;
             case "Power":
-                car.setPower(map.get(key));
+                car.setPower(Integer.parseInt(map.get(key).substring(0, map.get(key).indexOf(" "))));
                 break;
             case "Maximum speed":
                 car.setMaxSpeed(map.get(key));
@@ -111,7 +111,7 @@ public class Scrape
                  car.setFuelTankCapacity(map.get(key));
                 break;
             case "Year of putting into production":
-                car.setStartProduction(map.get(key));
+                car.setStartProduction(Integer.parseInt(map.get(key).substring(0, 4)));
                 break;
             case "Year of stopping production":
                 car.setStopProduction(map.get(key));

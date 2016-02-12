@@ -79,12 +79,11 @@ public class Recommendation
     
     public static void main(String args[]) throws JSONException, IOException
     {
-        
         Statistics temp = new Statistics();
         UserActions data = new UserActions();
         userInfo = data.getUserInformation();
         
-        System.out.println(temp.brandStatistics(userInfo));
+        System.out.println(temp.hoursePowerStatistics(userInfo));
         
     }
 

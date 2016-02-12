@@ -13,6 +13,7 @@ import javax.ws.rs.core.MediaType;
 
 import org.apache.solr.client.solrj.SolrServerException;
 import org.codehaus.jettison.json.JSONException;
+import org.codehaus.jettison.json.JSONObject;
 
 import DAO.DAOSolr;
 import Recommendation.UserActions;
@@ -43,24 +44,14 @@ public class SearchQueries
     
     @GET
     @Consumes(MediaType.APPLICATION_JSON)
-    @Produces(MediaType.TEXT_PLAIN)
-    @Path("/search")
-    public String search(QueryPOJO args) throws JSONException, SolrServerException, IOException
-    {
-        DAOSolr dao = new DAOSolr();
-        
-        return dao.numFound(args).toString();
-    }
-    
-    @GET
-    @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    @Path("/Page/{number}")
-    public List<Car> getPage(@PathParam("number") String number, QueryPOJO args) throws NumberFormatException, SolrServerException, IOException, JSONException
+    @Path("/search/{args}")
+    public List<Car> search(@PathParam("args") String args) throws JSONException, SolrServerException, IOException
     {
         DAOSolr dao = new DAOSolr();
+        QueryPOJO pojo = parse(args);
         
-        return dao.getListCars(Integer.parseInt(number), args);
+        return dao.getListCars(pojo);
     }
     
     @GET
@@ -73,21 +64,22 @@ public class SearchQueries
         return dao.recommendation();
     }
     
-/*    private Map<String, String> parse(String json) throws JSONException
+    private QueryPOJO parse(String json) throws JSONException
     {
         JSONObject object;
-        Map<String, String> map = new HashMap<String, String>();
-        
         object = new JSONObject(json);
+        QueryPOJO result = new QueryPOJO();
         
-        map.put("brand", object.getString("brand"));
-        map.put("model", object.getString("model"));
-        map.put("power", object.getString("power"));
-        map.put("startProduction", object.getString("startProduction"));
-        map.put("numGearsA", object.getString("numGearsA"));
-        map.put("coupeType", object.getString("coupeType"));
-        map.put("fuelType", object.getString("fuelType"));
         
-        return map;
-    }*/
+        result.setBrand(object.getString("brand"));
+        result.setModel(object.getString("model"));
+        result.setPower(object.getString("power"));
+        result.setStartProduction(object.getString("startProduction"));
+        result.setNumGearsA(object.getString("numGearsA"));
+        result.setCoupeType(object.getString("coupeType"));
+        result.setFuelType(object.getString("fuelType"));
+        
+        return result;
+    }
+
 }

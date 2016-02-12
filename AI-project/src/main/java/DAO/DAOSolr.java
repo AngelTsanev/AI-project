@@ -49,23 +49,7 @@ public class DAOSolr
         return null;
     }
     
-//    public SolrQuery searchQuery(Map<String, String> map)
-//    {
-//        Map<String,String> result = editEmptyFields(map);
-//        SolrQuery query = new SolrQuery();
-//        
-//        query.setQuery("brand:" + result.get("brand") + " AND " + 
-//        "model:" + result.get("model") + " AND " + 
-//            "power:" + result.get("power") + " AND " +
-//        "startProduction:" + result.get("startProduction") + " AND " +
-//        "numGearsA:" + result.get("numGearsA") + " AND " +
-//        "coupeType:" + result.get("coupeType") + " AND " + 
-//        "fuelType:" + result.get("fuelType") );
-//        
-//        return query;
-//    }
-    
-  public SolrQuery searchQuery(QueryPOJO obj)
+    public SolrQuery searchQuery(QueryPOJO obj)
   {
       QueryPOJO result = editEmptyFields(obj);
       SolrQuery query = new SolrQuery();
@@ -90,11 +74,10 @@ public class DAOSolr
         return rsp.getResults().size();
     }
     
-    public List<Car> getListCars(int page, QueryPOJO obj) throws SolrServerException, IOException
+    public List<Car> getListCars(QueryPOJO obj) throws SolrServerException, IOException
     {
         SolrQuery query = searchQuery(obj);
-        query.setRows(10);
-        query.setStart(10 * page);
+        query.setRows(100);
         QueryResponse rsp = server.query(query);
         
         return rsp.getBeans(Car.class);
@@ -108,26 +91,6 @@ public class DAOSolr
         
         return rsp.getBeans(Car.class);
     }
-    
-    
-//    private Map<String, String> editEmptyFields(Map<String, String> map)
-//    {
-//        Map<String, String> result = new HashMap<String, String>();
-//        
-//        for(String key: map.keySet())
-//        {
-//            if(map.get(key).equals(""))
-//            {
-//                result.put(key, "*");
-//            }
-//            else
-//            {
-//                result.put(key, map.get(key));
-//            }
-//        }
-//        
-//        return result;
-//    }
     
     private QueryPOJO editEmptyFields(QueryPOJO obj)
     {    

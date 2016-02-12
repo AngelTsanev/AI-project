@@ -17,9 +17,16 @@ public class Main
         SolrClient server = new HttpSolrClient(url);
         
         
-//        Scrape scrape = new Scrape(server);
-//        scrape.scrapeInformation();
-//        System.out.println("finish");
+//        for(int i = 1; i<15; i++ )
+//            server.deleteById(new Integer(i).toString());
+//        
+//        server.commit();
+        
+   //     Scrape scrape = new Scrape(server);
+   //     scrape.scrapeInformation();
+        
+        
+        System.out.println("finish");
         
     }
 

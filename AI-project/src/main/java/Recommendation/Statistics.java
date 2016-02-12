@@ -59,19 +59,19 @@ public class Statistics
         {
             object = array.getJSONObject(i);
 
-            if (object.getString("model").equals(""))
+            if (object.getString("brand").equals(""))
             {
                 continue;
             }
 
-            Integer count = appearences.get(object.getString("model"));
+            Integer count = appearences.get(object.getString("brand"));
             if (count != null)
             {
-                appearences.put(object.getString("model"), ++count);
+                appearences.put(object.getString("brand"), ++count);
             }
             else
             {
-                appearences.put(object.getString("model"), 1);
+                appearences.put(object.getString("brand"), 1);
             }
         }
 
@@ -80,7 +80,7 @@ public class Statistics
         for (String key : appearences.keySet())
         {
 
-            result = result + "model:" + key + "^" + appearences.get(key);
+            result = result + "brand:" + key + "^" + appearences.get(key);
 
             if (firstTreeCarsOnly >= 2 || appearences.size() == 1 || (firstTreeCarsOnly==1 && appearences.size() ==2))
             {
@@ -123,7 +123,7 @@ public class Statistics
 
         avarageYears = avarageYears / num;
 
-        result = "startProduction:" + avarageYears;
+        result = "startProduction:[" + avarageYears + " TO *]";
 
         return result;
     }
@@ -142,7 +142,7 @@ public class Statistics
             if (hp.equals(""))
                 continue;
 
-            hpAvarage = hpAvarage + Integer.parseInt(hp.substring(0, 4));
+            hpAvarage = hpAvarage + Integer.parseInt(hp.substring(0, hp.indexOf(" ")));
 
             num++;
         }
@@ -152,9 +152,10 @@ public class Statistics
             return result;
         }
 
+        num = num + 1; //increment one more time to get lower from avarage;
         hpAvarage = hpAvarage / num;
 
-        result = "power:" + hpAvarage;
+        result = "power:[" + hpAvarage + " TO *]";
 
         return result;
     }
