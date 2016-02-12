@@ -31,21 +31,22 @@
                 // items = $( this ).serializeArray();
                 // console.log(JSON.stringify(items));
 
-                //var data = {};
-                //$(this).serializeArray().map(function(x){data[x.name] = x.value;});
+                var data = {};
+                $(this).serializeArray().map(function(x){data[x.name] = x.value;});
+                console.log(data);
 
-                //$.getJSON('http://localhost:8080/AI-project/search/'+JSON.stringify(data), function(data2) {
-                //console.log(data2);
-                //});
+                // $.getJSON('http://localhost:8080/AI-project/search/'+JSON.stringify(data), function(data2) {
+                // console.log(data2);
+                // });
                 //console.log(JSON.stringify(data));
                 //
                 $.ajax({
                     type: "GET",
-                    url: 'http://localhost:8080/newAI/test',
+                    url: 'http://localhost:8080/AI-proj/search/'+JSON.stringify(data),
                     success: function(data){
                         //modify the id's to be alerts
-                        console.log(myRecords);
-                        var myRecords = JSON.parse(data);
+                        console.log(data);
+                        var myRecords = data.car;
                         for(var i=0; i<myRecords.length; i++){
                         var id = myRecords[i]['id'];
                         myRecords[i].id = "<a href=\"javascript:alertMe("+ id +");\">" + id + "</a>";
@@ -73,7 +74,7 @@
             function alertMe(id) {
                 $.ajax({
                         type: "GET",
-                        url: 'http://localhost:8080/newAI/id/'+id,
+                        url: 'http://localhost:8080/AI-proj/id/'+id,
                         success: function(data){
                             console.log(data);
                             alert(JSON.stringify(data.car));
@@ -92,7 +93,7 @@
                 <tr><td>Manufacturer: </td><td><input class="form-control" type="text" size="10" value="" name="brand"></td><td><small>(Example: BMW)</small></td></tr>
                 <tr><td>Model: </td><td><input type="text" size="10" value="" name="model"></td><td><small>(Example: 3er)</small></td></tr>
                 <tr><td>Coupe type:</td><td><input type="text" size="10" value="" name="coupeType"></td><td><small>(Example: Sedan)</small></td></tr>
-                <tr><td>Manufactured after: </td><td><input type="text" size="10" value="2000" name="startProduction"></td><td><small>(Example: 2000)</small></td></tr>
+                <tr><td>Manufactured after: </td><td><input type="text" size="10" name="startProduction"></td><td><small>(Example: 2000)</small></td></tr>
                 <tr><td>Fuel type:</td><td><input type="text" size="10" value="" name="fuelType"></td><td><small>(Example: Diesel)</small></td></tr>
                 <tr><td>Number of gears:</td><td><input type="text" size="10" value="" name="numGearsA"></td><td><small>(Example: 4)</small></td></tr>
                 <tr><td>Horse Power:</td><td><input type="text" size="10" value="" name="power"></td><td><small>(Example: 120)</small></td></tr></table></center>
@@ -102,7 +103,7 @@
             <br><br><br>
             <hr>
             <center>
-                <div style="width:700px;height:500;" class="table">
+                <div style="width:700px;height:600;" class="table">
                 <table id="my-ajax-table">
                       <thead>
                         <th>brand</th>
@@ -122,7 +123,7 @@
             <br><br><br>
 
             <hr><br><br><br>
-            <center><iframe src="http://localhost:8080/AI-project/ads.html" style="width:800px;height=500;"></iframe><center>
+            <center><iframe src="http://localhost:8080/AI-proj/ads.html" style="width:1200px;height:800;"></iframe><center>
             </div>                    
     </body>
 </html>

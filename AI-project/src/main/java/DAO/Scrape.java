@@ -31,7 +31,7 @@ public class Scrape
         String key = "";
         String value = "";
 
-        for (int i = 1; i < 15; i++)
+        for (int i = 9900; i < 10101; i++)
         {
             Document doc = Jsoup.connect("http://www.auto-data.net/en/?f=showCar&car_id=" + i)
                 .get();
@@ -64,7 +64,7 @@ public class Scrape
                 persistDocuments(cars);
 
         }
-        persistDocuments(cars); // REMOVE !!!!!!!!!!!!!!!!!!!!!!!!!!!
+        //persistDocuments(cars); // REMOVE !!!!!!!!!!!!!!!!!!!!!!!!!!!
 
         return;
     }
@@ -99,10 +99,10 @@ public class Scrape
                 car.setEngine(map.get(key));
                 break;
             case "Doors":
-                car.setDoors(Short.parseShort(map.get(key)));
+                car.setDoors(map.get(key));
                 break;
             case "Power":
-                car.setPower(Integer.parseInt(map.get(key).substring(0, map.get(key).indexOf(" "))));
+                car.setPower(Math.round(Float.parseFloat(map.get(key).substring(0, map.get(key).indexOf(" ")))));
                 break;
             case "Maximum speed":
                 car.setMaxSpeed(map.get(key));

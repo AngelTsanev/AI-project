@@ -22,9 +22,13 @@
     $(document).ready(function () {
         $.ajax({
             type: "GET",
-            url: 'http://localhost:8080/AI-project/ads',
+            url: 'http://localhost:8080/AI-proj/recommend',
             success: function(data){
-                myRecords = JSON.parse(data);
+                myRecords = data.car;
+                for(var i=0; i<myRecords.length; i++){
+                    var id = myRecords[i]['id'];
+                    myRecords[i].id = "<a href=\"javascript:alertMe("+ id +");\">" + id + "</a>";
+                }
                 $('#my-ajax-table').dynatable({
                     features: {
                     paginate: false,
@@ -42,6 +46,18 @@
     });
 
     </script>
+    <script type="text/javascript">
+            function alertMe(id) {
+                $.ajax({
+                        type: "GET",
+                        url: 'http://localhost:8080/AI-proj/id/'+id,
+                        success: function(data){
+                            console.log(data);
+                            alert(JSON.stringify(data.car));
+                        }         
+                    });
+            }
+        </script>
 </head>
 <body>
     <center>
@@ -55,6 +71,7 @@
                 <th>fuelType</th>
                 <th>numGearsA</th>
                 <th>power</th>
+                <th>id</th>
               </thead>
               <tbody>
               </tbody>

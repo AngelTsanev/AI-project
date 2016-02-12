@@ -22,8 +22,8 @@ public class Main
 //        
 //        server.commit();
         
-   //     Scrape scrape = new Scrape(server);
-   //     scrape.scrapeInformation();
+        Scrape scrape = new Scrape(server);
+        scrape.scrapeInformation();
         
         
         System.out.println("finish");

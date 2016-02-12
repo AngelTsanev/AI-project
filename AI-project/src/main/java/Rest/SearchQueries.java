@@ -42,6 +42,15 @@ public class SearchQueries
         
         return result; 
     }
+    
+    @GET
+    @Path("/test")
+    public String getTest() throws FileNotFoundException, JSONException 
+    {
+    	String result ="[{\"brand\":\"3er\",\"model\":\"BMW\",\"coupeType\":\"Sedan\",\"startProduction\":\"2010 year\",\"fuelType\":\"Diesel\",\"numGearsA\":\"8\",\"power\":\"100\",\"id\":\"1\"},{\"brand\":\"3er\",\"model\":\"BMW\",\"coupeType\":\"Coupe\",\"startProduction\":\"2012 year\",\"fuelType\":\"Petrol\",\"numGearsA\":\"8\",\"power\":\"200\",\"id\":\"2\"},{\"brand\":\"3er\",\"model\":\"BMW\",\"coupeType\":\"Coupe\",\"startProduction\":\"2012 year\",\"fuelType\":\"Petrol\",\"numGearsA\":\"8\",\"power\":\"200\",\"id\":\"3\"},{\"brand\":\"3er\",\"model\":\"BMW\",\"coupeType\":\"Sedan\",\"startProduction\":\"2010 year\",\"fuelType\":\"Diesel\",\"numGearsA\":\"8\",\"power\":\"100\",\"id\":\"4\"},{\"brand\":\"3er\",\"model\":\"BMW\",\"coupeType\":\"Coupe\",\"startProduction\":\"2012 year\",\"fuelType\":\"Petrol\",\"numGearsA\":\"8\",\"power\":\"200\",\"id\":\"5\"},{\"brand\":\"3er\",\"model\":\"BMW\",\"coupeType\":\"Coupe\",\"startProduction\":\"2012 year\",\"fuelType\":\"Petrol\",\"numGearsA\":\"8\",\"power\":\"200\",\"id\":\"6\"},{\"brand\":\"3er\",\"model\":\"BMW\",\"coupeType\":\"Sedan\",\"startProduction\":\"2010 year\",\"fuelType\":\"Diesel\",\"numGearsA\":\"8\",\"power\":\"100\",\"id\":\"7\"},{\"brand\":\"3er\",\"model\":\"BMW\",\"coupeType\":\"Coupe\",\"startProduction\":\"2012 year\",\"fuelType\":\"Petrol\",\"numGearsA\":\"8\",\"power\":\"200\",\"id\":\"8\"},{\"brand\":\"3er\",\"model\":\"BMW\",\"coupeType\":\"Coupe\",\"startProduction\":\"2012 year\",\"fuelType\":\"Petrol\",\"numGearsA\":\"8\",\"power\":\"200\",\"id\":\"9\"},{\"brand\":\"3er\",\"model\":\"BMW\",\"coupeType\":\"Sedan\",\"startProduction\":\"2010 year\",\"fuelType\":\"Diesel\",\"numGearsA\":\"8\",\"power\":\"100\",\"id\":\"10\"},{\"brand\":\"3er\",\"model\":\"BMW\",\"coupeType\":\"Coupe\",\"startProduction\":\"2012 year\",\"fuelType\":\"Petrol\",\"numGearsA\":\"8\",\"power\":\"200\",\"id\":\"11\"},{\"brand\":\"3er\",\"model\":\"BMW\",\"coupeType\":\"Coupe\",\"startProduction\":\"2012 year\",\"fuelType\":\"Petrol\",\"numGearsA\":\"8\",\"power\":\"200\",\"id\":\"12\"},{\"brand\":\"3er\",\"model\":\"BMW\",\"coupeType\":\"Sedan\",\"startProduction\":\"2010 year\",\"fuelType\":\"Diesel\",\"numGearsA\":\"8\",\"power\":\"100\",\"id\":\"13\"},{\"brand\":\"3er\",\"model\":\"BMW\",\"coupeType\":\"Coupe\",\"startProduction\":\"2012 year\",\"fuelType\":\"Petrol\",\"numGearsA\":\"8\",\"power\":\"200\",\"id\":\"14\"},{\"brand\":\"3er\",\"model\":\"BMW\",\"coupeType\":\"Coupe\",\"startProduction\":\"2012 year\",\"fuelType\":\"Petrol\",\"numGearsA\":\"8\",\"power\":\"200\",\"id\":\"15\"},{\"brand\":\"3er\",\"model\":\"BMW\",\"coupeType\":\"Sedan\",\"startProduction\":\"2010 year\",\"fuelType\":\"Diesel\",\"numGearsA\":\"8\",\"power\":\"100\",\"id\":\"16\"},{\"brand\":\"3er\",\"model\":\"BMW\",\"coupeType\":\"Coupe\",\"startProduction\":\"2012 year\",\"fuelType\":\"Petrol\",\"numGearsA\":\"8\",\"power\":\"200\",\"id\":\"17\"},{\"brand\":\"3er\",\"model\":\"BMW\",\"coupeType\":\"Coupe\",\"startProduction\":\"2012 year\",\"fuelType\":\"Petrol\",\"numGearsA\":\"8\",\"power\":\"200\",\"id\":\"18\"},{\"brand\":\"3er\",\"model\":\"BMW\",\"coupeType\":\"Sedan\",\"startProduction\":\"2010 year\",\"fuelType\":\"Diesel\",\"numGearsA\":\"8\",\"power\":\"100\",\"id\":\"19\"},{\"brand\":\"3er\",\"model\":\"BMW\",\"coupeType\":\"Coupe\",\"startProduction\":\"2012 year\",\"fuelType\":\"Petrol\",\"numGearsA\":\"8\",\"power\":\"200\",\"id\":\"20\"},{\"brand\":\"3er\",\"model\":\"BMW\",\"coupeType\":\"Coupe\",\"startProduction\":\"2012 year\",\"fuelType\":\"Petrol\",\"numGearsA\":\"8\",\"power\":\"200\",\"id\":\"21\",\"idsf\":\"1\"}]";
+        
+        return result; 
+    }
       
     @GET
     @Consumes(MediaType.APPLICATION_JSON)
@@ -57,7 +66,7 @@ public class SearchQueries
     
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    @Path("/Recommend")
+    @Path("/recommend")
     public List<Car> getRecommend() throws IOException, JSONException, SolrServerException
     {
         DAOSolr dao = new DAOSolr();

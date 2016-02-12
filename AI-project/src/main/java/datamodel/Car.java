@@ -13,7 +13,7 @@ public class Car
     }
     
     public Car(String id, String brand, String generation, String model, String engine,
-        short doors, int power, String fuelTankCapacity, String maxSpeed, String coupeType,
+        String doors, int power, String fuelTankCapacity, String maxSpeed, String coupeType,
         int startProduction, String stopProduction, String length, String height, String weigth,
         String engineVolume, String maxPowerIn, String torque, String fuelSystem, String turbine,
         short cylinders, short numValvesPerCylinder, String fuelType, String wheelDrive,
@@ -70,7 +70,7 @@ public class Car
     private String engine;
     
     @Field
-    private int doors;
+    private String doors;
     
     @Field
     private int power;
@@ -197,12 +197,12 @@ public class Car
         this.engine = engine;
     }
 
-    public int getDoors()
+    public String getDoors()
     {
         return doors;
     }
 
-    public void setDoors(int doors)
+    public void setDoors(String doors)
     {
         this.doors = doors;
     }

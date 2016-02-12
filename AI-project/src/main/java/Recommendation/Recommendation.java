@@ -23,49 +23,49 @@ public class Recommendation
         
         if(!stat.brandStatistics(userInfo).equals("")){
           
-            queryString = stat.brandStatistics(userInfo);
+            queryString = "(" + stat.brandStatistics(userInfo) + ")";
         }
         if(!stat.coupeStatistics(userInfo).equals("")){
             
             if(queryString.equals(""))
             {
-                queryString = stat.coupeStatistics(userInfo);
+                queryString = "(" + stat.coupeStatistics(userInfo) + ")";
             }else
             {
-                queryString = queryString + " AND " + stat.coupeStatistics(userInfo);
+                queryString = queryString + " AND " + "(" + stat.coupeStatistics(userInfo) + ")";
             }
         }
         if(!stat.fuelTypeStatistics(userInfo).equals(""))
         {
             if(queryString.equals(""))
             {
-                queryString = stat.fuelTypeStatistics(userInfo);
+                queryString = "(" + stat.fuelTypeStatistics(userInfo) + ")";
             }
             else
             {
-                queryString = queryString + " AND " + stat.fuelTypeStatistics(userInfo);
+                queryString = queryString + " AND " + "(" + stat.fuelTypeStatistics(userInfo) + ")";
             }
         }
         if(!stat.hoursePowerStatistics(userInfo).equals(""))
         {
             if(queryString.equals(""))
             {
-                queryString = stat.hoursePowerStatistics(userInfo);
+                queryString = "(" + stat.hoursePowerStatistics(userInfo) + ")";
             }
             else
             {
-                queryString = queryString + " AND " + stat.hoursePowerStatistics(userInfo);
+                queryString = queryString + " AND " + "(" + stat.hoursePowerStatistics(userInfo) + ")";
             } 
         }
         if(!stat.yearStatistics(userInfo).equals(""))
         {
             if(queryString.equals(""))
             {
-                queryString = stat.yearStatistics(userInfo);
+                queryString = "(" + stat.yearStatistics(userInfo) + ")";
             }
             else
             {
-                queryString = queryString + " AND " + stat.yearStatistics(userInfo);
+                queryString = queryString + " AND " + "(" + stat.yearStatistics(userInfo) + ")";
             } 
         }
         

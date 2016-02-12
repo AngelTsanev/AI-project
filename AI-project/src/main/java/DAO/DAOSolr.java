@@ -48,19 +48,61 @@ public class DAOSolr
         
         return null;
     }
-    
     public SolrQuery searchQuery(QueryPOJO obj)
   {
+      String queryString = "";
       QueryPOJO result = editEmptyFields(obj);
       SolrQuery query = new SolrQuery();
       
-      query.setQuery("brand:" + result.getBrand() + " AND " + 
-      "model:" + result.getModel() + " AND " + 
-          "power:" + result.getPower() + " AND " +
-      "startProduction:" + result.getStartProduction() + " AND " +
-      "numGearsA:" + result.getNumGearsA() + " AND " +
-      "coupeType:" + result.getCoupeType() + " AND " + 
-      "fuelType:" + result.getFuelType() );
+      if(!result.getBrand().equals("*")){
+    	  queryString += "brand:" + result.getBrand();
+      }
+      if(!result.getModel().equals("*")){
+    	  if(!queryString.equals("")){
+    			  queryString += " AND ";
+    	  }
+    	  queryString += "model:" + result.getModel();
+      }
+      
+      if(!result.getPower().equals("*")){
+    	  if(!queryString.equals("")){
+    			  queryString += " AND ";
+    	  }
+    	  queryString += "power:[" + result.getPower() +  " TO *]";
+      }
+      
+      if(!result.getStartProduction().equals("*")){
+    	  if(!queryString.equals("")){
+    			  queryString += " AND ";
+    	  }
+    	  queryString += "startProduction:[" + result.getStartProduction() +  " TO *]";
+      }
+      
+      if(!result.getNumGearsA().equals("*")){
+    	  if(!queryString.equals("")){
+    			  queryString += " AND ";
+    	  }
+    	  queryString += "numGearsA:" + result.getNumGearsA();
+      }
+      
+      if(!result.getCoupeType().equals("*")){
+    	  if(!queryString.equals("")){
+    			  queryString += " AND ";
+    	  }
+    	  queryString += "coupeType:" + result.getCoupeType();
+      }
+      
+      if(!result.getFuelType().equals("*")){
+    	  if(!queryString.equals("")){
+    			  queryString += " AND ";
+    	  }
+    	  queryString += "fuelType:" + result.getFuelType();
+      }
+      
+      if(queryString.equals("")){
+    	  queryString = "*";
+      }
+      query.setQuery(queryString);
       
       return query;
   }
