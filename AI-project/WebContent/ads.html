@@ -1,0 +1,65 @@
+<html>
+<head>
+    <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script>
+    $( document ).ready(function() {
+        console.log( "document loaded" );
+    });
+ 
+    $( window ).load(function() {
+        console.log( "window loaded" );
+    });
+    </script>
+    <link rel="stylesheet" type="text/css" href="jquery.dynatable.css">
+    <link rel="stylesheet" type="text/css" href="dynatable-docs.css">
+    <link rel="stylesheet" type="text/css" href="bootstrap-2.3.2.min.css">
+    <link rel="stylesheet" type="text/css" href="application.css">
+    <link rel="stylesheet" type="text/css" href="project.css">
+    <script src="jquery-1.7.2.min.js"></script>
+    <script src="jquery.dynatable.js"></script>
+   
+    <script type="text/javascript">
+    $(document).ready(function () {
+        $.ajax({
+            type: "GET",
+            url: 'http://localhost:8080/AI-project/ads',
+            success: function(data){
+                myRecords = JSON.parse(data);
+                $('#my-ajax-table').dynatable({
+                    features: {
+                    paginate: false,
+                    sort: false,
+                    search: false,
+                    perPageSelect: false
+                  },
+                  dataset: {
+                    records: myRecords
+                  }
+                });
+            }         
+        });
+        return false;
+    });
+
+    </script>
+</head>
+<body>
+    <center>
+    <div style="width:500px;" class="table">
+        <table id="my-ajax-table">
+              <thead>
+                <th>brand</th>
+                <th>model</th>
+                <th>coupeType</th>
+                <th>startProduction</th>
+                <th>fuelType</th>
+                <th>numGearsA</th>
+                <th>power</th>
+              </thead>
+              <tbody>
+              </tbody>
+        </table>
+    </div>
+    </center>
+</body>
+</html>
