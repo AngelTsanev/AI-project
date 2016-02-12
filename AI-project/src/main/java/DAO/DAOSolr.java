@@ -8,7 +8,9 @@ import org.apache.solr.client.solrj.SolrQuery;
 import org.apache.solr.client.solrj.SolrServerException;
 import org.apache.solr.client.solrj.impl.HttpSolrClient;
 import org.apache.solr.client.solrj.response.QueryResponse;
+import org.codehaus.jettison.json.JSONException;
 
+import Recommendation.Recommendation;
 import datamodel.Car;
 import datamodel.QueryPOJO;
 
@@ -94,6 +96,15 @@ public class DAOSolr
         query.setRows(10);
         query.setStart(10 * page);
         QueryResponse rsp = server.query(query);
+        
+        return rsp.getBeans(Car.class);
+    }
+    
+    public List<Car> recommendation() throws IOException, JSONException, SolrServerException
+    {
+        Recommendation recommendation = new Recommendation();
+        
+        QueryResponse rsp = server.query(recommendation.getRecommendationQuery());
         
         return rsp.getBeans(Car.class);
     }

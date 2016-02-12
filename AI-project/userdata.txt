@@ -1,2 +1,3 @@
-{"brand":"3er","model":"BMW","coupeType":"Sedan","startProduction":"2010","fuelType":"Diesel","numGearsA":"8","power":"255"}
-{"brand":"3er","model":"BMW","coupeType":"Sedan","startProduction":"2010","fuelType":"Diesel","numGearsA":"8","power":"255"}
+{"brand":"3er","model":"BMW","coupeType":"Sedan","startProduction":"2010 year","fuelType":"Diesel","numGearsA":"8","power":"100"}
+{"brand":"3er","model":"BMW","coupeType":"Coupe","startProduction":"2012 year","fuelType":"Petrol","numGearsA":"8","power":"200"}
+{"brand":"3er","model":"BMW","coupeType":"Coupe","startProduction":"2012 year","fuelType":"Petrol","numGearsA":"8","power":"200"}

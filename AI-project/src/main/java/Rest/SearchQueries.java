@@ -63,6 +63,16 @@ public class SearchQueries
         return dao.getListCars(Integer.parseInt(number), args);
     }
     
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    @Path("/Recommend")
+    public List<Car> getRecommend() throws IOException, JSONException, SolrServerException
+    {
+        DAOSolr dao = new DAOSolr();
+        
+        return dao.recommendation();
+    }
+    
 /*    private Map<String, String> parse(String json) throws JSONException
     {
         JSONObject object;
